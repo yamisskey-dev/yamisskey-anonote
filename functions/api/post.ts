@@ -40,6 +40,14 @@ export const onRequestPost = async (context: EventContext<Env>) => {
       return new Response("Text is required", { status: 400 });
     }
 
+    // 環境変数の確認
+    if (!env.MISSKEY_TOKEN) {
+      return new Response(
+        JSON.stringify({ error: "MISSKEY_TOKEN is not configured" }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     const response = await fetch(`${env.MISSKEY_URL}/api/notes/create`, {
       method: "POST",
       headers: {
@@ -55,7 +63,8 @@ export const onRequestPost = async (context: EventContext<Env>) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Misskey API error: ${response.statusText}`);
+      const errorBody = await response.text();
+      throw new Error(`Misskey API error: ${response.status} - ${errorBody}`);
     }
 
     return new Response(JSON.stringify({ success: true }), {
