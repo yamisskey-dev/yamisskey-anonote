@@ -52,6 +52,7 @@ export const onRequestPost = async (context: EventContext<Env>) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "User-Agent": "Yamisskey-Anonote/1.0",
       },
       body: JSON.stringify({
         i: env.MISSKEY_TOKEN,
