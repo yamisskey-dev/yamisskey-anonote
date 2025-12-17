@@ -6,5 +6,9 @@ compatibility_date = "2024-10-24"
 # KV Namespace binding
 kv_namespaces = [{ binding = "RATE_LIMIT_KV", id = "a61ad85201bf441fa45f7f580840469b" }]
 
-# 環境変数は Cloudflare Dashboard で設定してください（シークレットのため）
+# 公開可能な環境変数
+[vars]
+MISSKEY_URL = "https://yami.ski"
+
+# MISSKEY_TOKEN は Cloudflare Dashboard でシークレットとして設定してください
 
