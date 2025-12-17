@@ -3,13 +3,8 @@ name = "yamisskey-anonote"
 pages_build_output_dir = "public"
 compatibility_date = "2024-10-24"
 
-# KV Namespace binding は Cloudflare Dashboard で設定してください
-# ローカル開発時は以下をアンコメントしてIDを設定:
-# kv_namespaces = [{ binding = "RATE_LIMIT_KV", id = "YOUR_KV_NAMESPACE_ID" }]
+# KV Namespace binding
+kv_namespaces = [{ binding = "RATE_LIMIT_KV", id = "a61ad85201bf441fa45f7f580840469b" }]
 
-# 環境変数は Cloudflare Dashboard で設定してください
-# ローカル開発用:
-# [vars]
-# MISSKEY_URL = "https://example.com"
-# MISSKEY_TOKEN = "TOKEN"
+# 環境変数は Cloudflare Dashboard で設定してください（シークレットのため）
 
